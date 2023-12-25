@@ -1,12 +1,6 @@
 import "../styles/Note.css"
 
-type NoteProps = {
-  title: string
-  content: string
-  color: string
-}
-
-const Note = ({ title, content, color }: NoteProps) => {
+const Note = ({ title, content, color }: Note) => {
   return (
     <div className={`note note--${color}`}>
       <h2>{title}</h2>

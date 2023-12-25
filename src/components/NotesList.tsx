@@ -8,25 +8,25 @@ const NotesList = () => {
   useEffect(() => {
     const url = "http://localhost:3000/notes"
 
-    const fetchData = async () => {
+    const getData = async () => {
       try {
         const response = await fetch(url)
         const json = await response.json()
         setNotes(json)
       } catch (error) {
-        console.log("error", error)
+        console.error("error", error)
       }
     }
 
-    fetchData()
-  }, [])
+    getData()
+  }, [notes])
 
   return (
-    <div className="notes-list">
+    <section className="notes-list">
       {notes.map((note: Note) => {
         return <Note key={note.id} {...note} />
       })}
-    </div>
+    </section>
   )
 }
 
