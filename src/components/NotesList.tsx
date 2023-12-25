@@ -21,10 +21,35 @@ const NotesList = () => {
     getData()
   }, [notes])
 
+  const onDeleteNote = (id: number | undefined) => {
+    const url = "http://localhost:3000/notes"
+
+    const deleteData = async () => {
+      try {
+        const response = await fetch(`${url}/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+
+        if (!response.ok) {
+          throw new Error("Failed to delete note")
+        }
+
+        console.log("Note deleted")
+      } catch (error) {
+        console.error("Error on delete note:", error)
+      }
+    }
+
+    deleteData()
+  }
+
   return (
     <section className="notes-list">
       {notes.map((note: Note) => {
-        return <Note key={note.id} {...note} />
+        return <Note key={note.id} {...note} onDeleteNote={onDeleteNote} />
       })}
     </section>
   )
