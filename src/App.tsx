@@ -1,7 +1,8 @@
+import NotesList from "./components/NotesList"
 import "./styles/App.css"
 
 function App() {
-  return <></>
+  return <NotesList />
 }
 
 export default App

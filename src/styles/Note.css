@@ -1,0 +1,13 @@
+.note {
+  border-radius: 4px;
+  border: solid 1px lightgray;
+  padding: 16px;
+}
+
+.note--blue {
+  background-color: lightblue;
+}
+
+.note--green {
+  background-color: lightgreen;
+}

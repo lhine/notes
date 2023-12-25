@@ -1,0 +1,34 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Note Title One",
+      "content": "This is the first note",
+      "color": "green"
+    },
+    {
+      "id": 2,
+      "title": "Note Title Two",
+      "content": "This is the second note",
+      "color": "blue"
+    },
+    {
+      "id": 3,
+      "title": "Note Title Three",
+      "content": "This is the third note",
+      "color": "green"
+    },
+    {
+      "id": 4,
+      "title": "Note Title Four",
+      "content": "This is the fourth note",
+      "color": "blue"
+    },
+    {
+      "id": 5,
+      "title": "Note Title Five",
+      "content": "This is the fifth note",
+      "color": "green"
+    }
+  ]
+}
