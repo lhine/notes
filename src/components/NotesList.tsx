@@ -3,30 +3,30 @@ import Note from "./Note"
 import "../styles/NotesList.css"
 
 const NotesList = () => {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState<Note[]>([])
 
   useEffect(() => {
-    const url = "http://localhost:3000/notes"
+    const BASE_URL = "http://localhost:3000/notes"
 
-    const getData = async () => {
+    const fetchNotes = async () => {
       try {
-        const response = await fetch(url)
-        const json = await response.json()
-        setNotes(json)
+        const response = await fetch(BASE_URL)
+        const notes = (await response.json()) as Note[]
+        setNotes(notes)
       } catch (error) {
         console.error("error", error)
       }
     }
 
-    getData()
+    fetchNotes()
   }, [notes])
 
   const onDeleteNote = (id: number | undefined) => {
-    const url = "http://localhost:3000/notes"
+    const BASE_URL = "http://localhost:3000/notes"
 
-    const deleteData = async () => {
+    const deleteNote = async () => {
       try {
-        const response = await fetch(`${url}/${id}`, {
+        const response = await fetch(`${BASE_URL}/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const NotesList = () => {
       }
     }
 
-    deleteData()
+    deleteNote()
   }
 
   return (

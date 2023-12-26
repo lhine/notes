@@ -24,11 +24,11 @@ const AddNewNote = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const url = "http://localhost:3000/notes"
+    const BASE_URL = "http://localhost:3000/notes"
 
-    const postData = async () => {
+    const postNote = async () => {
       try {
-        const response = await fetch(url, {
+        const response = await fetch(BASE_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const AddNewNote = () => {
       }
     }
 
-    postData()
+    postNote()
   }
 
   return (
