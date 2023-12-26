@@ -3,18 +3,24 @@ import Note from "./Note"
 import "../styles/NotesList.css"
 
 const NotesList = () => {
+  const [error, setError] = useState<unknown>()
+  const [isLoading, setIsLoading] = useState(false)
   const [notes, setNotes] = useState<Note[]>([])
 
   useEffect(() => {
     const BASE_URL = "http://localhost:3000/notes"
 
     const fetchNotes = async () => {
+      setIsLoading(true)
+
       try {
         const response = await fetch(BASE_URL)
         const notes = (await response.json()) as Note[]
         setNotes(notes)
-      } catch (error) {
-        console.error("error", error)
+      } catch (error: unknown) {
+        setError(error)
+      } finally {
+        setIsLoading(false)
       }
     }
 
@@ -44,6 +50,14 @@ const NotesList = () => {
     }
 
     deleteNote()
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Something went wrong.</div>
   }
 
   return (
