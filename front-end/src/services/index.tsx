@@ -1,5 +1,9 @@
 const BASE_URL = "http://localhost:3000"
 
 export const NOTES = {
-  "GET_ALL": `${BASE_URL}/notes`
+  "GET_ALL": `${BASE_URL}/notes`,
+}
+
+export const TAGS = {
+  "GET_ALL": `${BASE_URL}/tags`
 }
